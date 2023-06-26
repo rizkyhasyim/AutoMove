@@ -1,0 +1,36 @@
+/* minifpp css */
+.alert-minifpp{
+    margin: 0 0 0 0!important;
+    background: #010101 url(../img/bg-minifppro.jpg) no-repeat right bottom!important;
+    background-size: 100%!important;
+    border-radius: 8px!important;
+    padding: 20px 300px 20px 20px!important;
+    border-left:4px solid #237FC5!important;
+    color: #ccc!important;
+    h4 {
+        margin-bottom: 10px!important;
+    }
+    h3 {
+        color: #fff!important;
+    }
+}
+
+.btn-minifpp,.btn-minifpp2 {
+    display: inline-block;
+    border-radius: 4px;
+    background: #010101;
+    padding: 3px 8px;
+    text-decoration: none!important;
+    margin: 5px 5px 0 0;
+    border:1px solid rgba(255,255,255,0.2);
+    transition: 0.25s all ease-in;
+    &:hover {
+        background: #1A73E8!important;
+        color: #fff!important;
+        border: 1px solid #1A73E8;
+    }
+}
+.btn-minifpp2 {
+    background:#46A546!important;
+    color: #fff!important;
+}

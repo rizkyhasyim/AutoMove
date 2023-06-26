@@ -1,0 +1,190 @@
+$font-l :1.2em;
+$font-m :1em;
+$font-s :0.9em;
+$font-xs :0.8em;
+
+$gutter-xl :1.2em;
+$gutter-l :1em;
+$gutter-m :0.7em;
+$gutter-s :0.3em;
+$gutter-xs :0.2em;
+
+.mfp_carousel_skin_card {
+	display: none;
+	.mfp_block_title {
+		position: relative;
+		h4 {
+			position: absolute;
+			display: block;
+			top: 0;
+			margin: 0;
+			padding: 0;
+			font-size: $font-l;
+			width: 50%;
+			line-height: normal;
+		overflow: hidden;
+		display: block;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		}
+	}
+	.tns-slider {
+		display: flex; // for same height
+	}
+	.mfp_carousel_item { 
+		margin-bottom: $gutter-xl;
+		div {
+			border: 1px solid rgba(0,0,0,0.1);
+			box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.1);
+			padding: 10px;
+			height: 100%;
+			box-sizing: border-box;
+			position: relative;
+		}
+		.mfp_thumb_pos_top,.mfp_thumb_pos_top2 {
+			display: block;
+			margin: -11px -11px 0 -11px ;
+		}
+		.mfp_thumb_pos_top2 {
+			margin: 0 -11px 0 -11px ;
+		}
+		.mfp_thumb_pos_top, .mfp_thumb_pos_top2 {
+			img {
+				max-width: 100%;
+				width: 100%!important;
+				height: auto;
+				margin-bottom: $gutter-l;
+			}
+		}
+		.mfp_thumb_pos_left, .mfp_thumb_pos_left2 {
+			img {
+				float: left;
+				margin-bottom: $gutter-l;
+				margin-right: $gutter-l;
+			}
+		}
+		.mfp_thumb_pos_right, .mfp_thumb_pos_right2  {
+			img {
+				float: right;
+				margin-bottom: $gutter-l;
+				margin-left: $gutter-l;
+			}
+		}
+		.mfp_carousel_title {
+			display: block;
+			line-height: normal;
+			margin: 0 0 $gutter-s 0;
+			padding: 0;
+			a {
+				font-weight: 700!important;
+				font-size: $font-m!important;
+			}
+		}
+		.mfp_date,.mfp_author {
+			font-size: $font-s;
+			color: #666;
+			display: inline;
+		}
+		.mfp_author {
+			font-weight:700;
+		}
+		.mfp_cat {
+			font-size: $font-s;
+			display: block;
+			text-transform: uppercase;
+			a {
+				font-weight: 700;
+				color: #111;
+			}
+		}
+		.mfp_carousel_introtext {
+			font-size: $font-s;
+			padding: 0;
+			display: block;
+			margin: $gutter-m 0 0 0;
+		}
+	}
+
+	/* Carousel styles */
+	.tns-inner {
+		overflow:hidden;}
+	.tns-outer {
+		position: relative;
+		button[data-action]{
+			position: absolute;
+			top: 0;
+			right: 0px;
+			border:none;
+			padding: 4px 0 0;
+			margin: 0;
+			outline: none;
+			font-size: $font-xs;
+			opacity: 0.5;
+			line-height: normal;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+		button[data-action=start] {
+			opacity: 0.8;
+		}
+		
+	}
+	.tns-controls>[aria-controls]{
+		font-size: $font-xs;
+		text-transform: uppercase;
+		padding: 0 0 0 5px;
+		letter-spacing: 1px;
+		border: none;
+		outline: none;
+		opacity: 0.3;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.tns-controls {
+		float: right;
+		outline: none;
+		button {
+			line-height: 1!important;
+			&:first-child {
+				color: transparent;
+				width: 13px;
+				height: 12px;
+				overflow: hidden;
+				background: url(../../../tmpl/carousel/back.png) no-repeat;
+				background-size: 100% 100%;
+				margin-right: 3px;
+				margin-left: 5px;
+			}
+			&:last-child {
+				color: transparent;
+				width: 13px;
+				height: 12px;
+				overflow: hidden;
+				background: url(../../../tmpl/carousel/next.png) no-repeat;
+				background-size: 100% 100%;
+			}
+		}
+	}
+	.tns-nav {
+		text-align: right;
+		margin: 10px 0;
+	}
+
+	.tns-nav>[aria-controls] {
+		width: 6px;
+		height: 6px;
+		padding: 0;
+		margin: 0 3px;
+		border-radius: 50%;
+		background: #ddd;
+		border: 0;
+		outline: none;
+	}
+
+	.tns-nav>.tns-nav-active {
+		background: #999;
+	}
+
+}

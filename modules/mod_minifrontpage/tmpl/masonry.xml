@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field 
+        name="theme_masonry_preview" 
+        type="note" 
+        label="MOD_MFP_THM_MASONRY_PREVIEW"/>
+    <field name="masonry_num_column" type="list" default="3" label="MOD_MFP_THM_MASONRY_NUM_COLUMN_LABEL" description="MOD_MFP_THM_DEFAULT_NUM_COLUMN_DESC">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="12">12</option>
+    </field>
+    <field 
+        name="masonry_show_cat" 
+        type="radio" 
+        default="0" 
+        label="MOD_MFP_THM_DEFAULT_SHOW_CAT_LABEL" 
+        description="MOD_MFP_THM_DEFAULT_SHOW_CAT_DESC"
+        class="btn-group btn-group-yesno">
+        <option value="0">JHIDE</option>
+        <option value="1">JSHOW</option>
+    </field>
+    <field 
+        name="masonry_show_author" 
+        type="radio" 
+        default="0" 
+        label="MOD_MFP_THM_DEFAULT_SHOW_AUTHOR_LABEL" 
+        description="MOD_MFP_THM_DEFAULT_SHOW_AUTHOR_DESC"
+        class="btn-group btn-group-yesno">
+        <option value="0">JHIDE</option>
+        <option value="1">JSHOW</option>
+    </field>
+    <field 
+        name="show_date" 
+        type="radio" 
+        default="1" 
+        label="MOD_MFP_SHOW_DATE_LABEL" 
+        class="btn-group btn-group-yesno">
+        <option value="0">JHIDE</option>
+        <option value="1">JSHOW</option>
+    </field>
+
+    <field name="date_format" 
+        type="list" 
+        default="1" 
+        label="MOD_MFP_DATE_FORMAT_LABEL"
+        showon="show_date:1">
+        <option value="l, d F Y H:i">Monday, 22 April 2019 00:36</option>
+        <option value="d F Y">22 April 2019</option>
+        <option value="H:i">00:36</option>
+        <option value="D, M jS Y">Mon, Apr 22nd 2019</option>
+        <option value="l, F jS Y H:i">Monday, April 22nd 2019 00:36</option>
+        <option value="custom_date_format">MOD_MFP_CUSTOM_DATE_FORMAT_LABEL</option>
+
+    </field>
+    <field 
+        name="custom_date_format" 
+        type="text" 
+        default="" 
+        label="MOD_MFP_CUSTOM_DATE_FORMAT_LABEL" 
+        filter="raw"
+        description="MOD_MFP_CUSTOM_DATE_FORMAT_DESC" 
+        showon="date_format:custom_date_format"
+        hint="Y-m-d H:i:s"
+    />
+     <field name="masonry_thumbnail_position" type="list" default="top" label="MOD_MFP_THM_DEFAULT_THUMB_POSITION_LABEL" description="MOD_MFP_THM_DEFAULT_THUMB_POSITION_DESC">
+        <option value="none">MOD_MFP_NO_THUMB</option>
+        <option value="top">MOD_MFP_TOP_TITLE</option>
+        <option value="left">MOD_MFP_LEFT_TITLE</option>
+        <option value="right">MOD_MFP_RIGHT_TITLE</option>
+        <option value="top2">MOD_MFP_TOP_INTRO</option>
+        <option value="left2">MOD_MFP_LEFT_INTRO</option>
+        <option value="right2">MOD_MFP_RIGHT_INTRO</option>
+    </field>
+    <field name="masonry_skin" type="filelist" default="card.min" label="MOD_MFP_THM_DEFAULT_SKIN_LABEL" description="MOD_MFP_THM_DEFAULT_SKIN_DESC" directory="modules/mod_minifrontpage/tmpl/masonry/skin" filter="min.css" fileFilter="min.css" exclude="" stripext="true" hide_none="true" hide_default="true" />
+</form>

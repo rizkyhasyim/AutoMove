@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field 
+        name="theme_carousel_preview" 
+        type="note" 
+        label="MOD_MFP_THM_CAROUSEL_PREVIEW"/>
+    <field 
+        name="carousel_num_column" 
+        type="number" 
+        default="4" 
+        label="MOD_MFP_THM_CAROUSEL_NUM_COLUMN_LABEL" 
+        description="MOD_MFP_THM_CAROUSEL_NUM_COLUMN_DESC" />
+    <field 
+        name="carousel_show_cat" 
+        type="radio" 
+        default="0" 
+        label="MOD_MFP_THM_DEFAULT_SHOW_CAT_LABEL" 
+        description="MOD_MFP_THM_DEFAULT_SHOW_CAT_DESC"
+        class="btn-group btn-group-yesno">
+        <option value="0">JHIDE</option>
+        <option value="1">JSHOW</option>
+    </field>
+    <field 
+        name="carousel_show_author" 
+        type="radio" 
+        default="0" 
+        label="MOD_MFP_THM_DEFAULT_SHOW_AUTHOR_LABEL" 
+        description="MOD_MFP_THM_DEFAULT_SHOW_AUTHOR_DESC"
+        class="btn-group btn-group-yesno">
+        <option value="0">JHIDE</option>
+        <option value="1">JSHOW</option>
+    </field>
+    <field 
+        name="show_date" 
+        type="radio" 
+        default="1" 
+        label="MOD_MFP_SHOW_DATE_LABEL" 
+        class="btn-group btn-group-yesno">
+        <option value="0">JHIDE</option>
+        <option value="1">JSHOW</option>
+    </field>
+
+    <field name="date_format" 
+        type="list" 
+        default="1" 
+        label="MOD_MFP_DATE_FORMAT_LABEL"
+        showon="show_date:1">
+        <option value="l, d F Y H:i">Monday, 22 April 2019 00:36</option>
+        <option value="d F Y">22 April 2019</option>
+        <option value="H:i">00:36</option>
+        <option value="D, M jS Y">Mon, Apr 22nd 2019</option>
+        <option value="l, F jS Y H:i">Monday, April 22nd 2019 00:36</option>
+        <option value="custom_date_format">MOD_MFP_CUSTOM_DATE_FORMAT_LABEL</option>
+
+    </field>
+    <field 
+        name="custom_date_format" 
+        type="text" 
+        default="" 
+        label="MOD_MFP_CUSTOM_DATE_FORMAT_LABEL" 
+        filter="raw"
+        description="MOD_MFP_CUSTOM_DATE_FORMAT_DESC" 
+        showon="date_format:custom_date_format"
+        hint="Y-m-d H:i:s"
+    />
+    <field name="carousel_thumbnail_position" type="list" default="top" label="MOD_MFP_THM_DEFAULT_THUMB_POSITION_LABEL" description="MOD_MFP_THM_DEFAULT_THUMB_POSITION_DESC">
+        <option value="none">MOD_MFP_NO_THUMB</option>
+        <option value="top">MOD_MFP_TOP_TITLE</option>
+        <option value="left">MOD_MFP_LEFT_TITLE</option>
+        <option value="right">MOD_MFP_RIGHT_TITLE</option>
+        <option value="top2">MOD_MFP_TOP_INTRO</option>
+        <option value="left2">MOD_MFP_LEFT_INTRO</option>
+        <option value="right2">MOD_MFP_RIGHT_INTRO</option>
+    </field>
+    <field 
+        name="carousel_autoplay" 
+        type="radio" 
+        default="false" 
+        label="MOD_MFP_THM_CAROUSEL_AUTOPLAY_LABEL" 
+        class="btn-group btn-group-yesno">
+        <option value="true">JYES</option>
+        <option value="false">JNO</option>
+    </field>
+    <field 
+        name="carousel_autoplay_timeout" 
+        type="number" 
+        default="3000" 
+        label="MOD_MFP_THM_CAROUSEL_AUTOPLAY_TIMEOUT_LABEL" 
+        description="MOD_MFP_THM_CAROUSEL_AUTOPLAY_TIMEOUT_DESC"
+        showon="carousel_autoplay:true" />
+    <field name="carousel_anim_in" type="list" default="tns-fadeIn" label="MOD_MFP_THM_ANIM_IN_LABEL" description="MOD_MFP_THM_ANIM_IN_DESC">
+        <option value="tns-fadeIn">default</option>
+        <option value="wobble">wobble</option>
+        <option value="bounceIn">bounceIn</option>
+        <option value="bounceInDown">bounceInDown</option>
+        <option value="bounceInLeft">bounceInLeft</option>
+        <option value="bounceInRight">bounceInRight</option>
+        <option value="bounceInUp">bounceInUp</option>
+        <option value="fadeInDown">fadeInDown</option>
+        <option value="fadeInLeft">fadeInLeft</option>
+        <option value="fadeInRight">fadeInRight</option>
+        <option value="fadeInUp">fadeInUp</option>
+        <option value="flipInX">flipInX</option>
+        <option value="flipInY">flipInY</option>
+        <option value="rotateIn">rotateIn</option>
+        <option value="zoomIn">zoomIn</option>
+    </field>
+    <field name="carousel_anim_out" type="list" default="fadeOutDown" label="MOD_MFP_THM_ANIM_OUT_LABEL" description="MOD_MFP_THM_ANIM_OUT_DESC" showon="carousel_anim_in!:tns-fadeIn">
+        <option value="bounceOut">bounceOut</option>
+        <option value="bounceOutDown">bounceOutDown</option>
+        <option value="bounceOutLeft">bounceOutLeft</option>
+        <option value="bounceOutRight">bounceOutRight</option>
+        <option value="bounceOutUp">bounceOutUp</option>
+        <option value="fadeOutDown">fadeOutDown</option>
+        <option value="fadeOutLeft">fadeOutLeft</option>
+        <option value="fadeOutRight">fadeOutRight</option>
+        <option value="fadeOutUp">fadeOutUp</option>
+        <option value="flipOutX">flipOutX</option>
+        <option value="flipOutY">flipOutY</option>
+        <option value="rotateOut">rotateOut</option>
+        <option value="zoomOut">zoomOut</option>
+    </field>
+    <field 
+        name="carousel_anim_speed" 
+        type="number" 
+        default="1000" 
+        label="MOD_MFP_THM_CAROUSEL_ANIM_SPEED_LABEL" 
+        description="MOD_MFP_THM_CAROUSEL_ANIM_SPEED_DESC"
+        showon="carousel_anim_in!:tns-fadeIn" />
+    <field 
+        name="carousel_gutter_size" 
+        type="number" 
+        default="20" 
+        label="MOD_MFP_THM_CAROUSEL_GUTTER_SIZE_LABEL" 
+        description="MOD_MFP_THM_CAROUSEL_GUTTER_SIZE_DESC" />
+    <field name="carousel_skin" type="filelist" default="default.min" label="MOD_MFP_THM_DEFAULT_SKIN_LABEL" description="MOD_MFP_THM_DEFAULT_SKIN_DESC" directory="modules/mod_minifrontpage/tmpl/carousel/skin" filter="min.css" fileFilter="min.css" exclude="" stripext="true" hide_none="true" hide_default="true" />
+    
+</form>

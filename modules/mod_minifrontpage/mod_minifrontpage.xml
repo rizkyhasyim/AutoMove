@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>Minifrontpage</name>
+	<author>TemplatePlazza</author>
+	<creationDate>03-07-22</creationDate>
+	<copyright>Copyright (C) 2005 - 2020 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@templateplazza.com</authorEmail>
+	<authorUrl>www.templateplazza.com</authorUrl>
+	<version>4.0.0</version>
+	<description>MOD_MFP_DESCRIPTION</description>
+	<files>
+		<filename module="mod_minifrontpage">mod_minifrontpage.php</filename>
+		<folder>admin</folder>
+		<folder>Helper</folder>
+		<folder>tmpl</folder>
+	</files>
+	<scriptfile>script.php</scriptfile>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_minifrontpage.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_minifrontpage.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field 
+					name="notepro" 
+					type="note" 
+					label="MOD_MFP_AVAILABLE_IN_PRO_ONLY1_LABEL"
+					description="MOD_MFP_AVAILABLE_IN_PRO_ONLY1_DESC"
+					class="alert alert-minifpp"/>
+				<field type="minifrontpage" addfieldpath="/modules/mod_minifrontpage/admin/elements/" labelclass="admin-element"></field>
+				<field 
+					name="note1" 
+					type="note" 
+					label="MOD_MFP_BASIC_SETTINGS_LABEL"/>
+				<field
+					name="count"
+					type="number"
+					label="MOD_MFP_FIELD_COUNT_LABEL"
+					description="MOD_MFP_FIELD_COUNT_DESC"
+					default="5"
+					filter="integer"
+				/>
+
+				
+				<field 
+					name="num_intro_skip" 
+					type="text" 
+					default="0"
+					label="MOD_MFP_SKIPPED_ITEM_LABEL" 
+					description="MOD_MFP_SKIPPED_ITEM_DESC" />
+				<field 
+					name="show_intro" 
+					type="radio" 
+					default="1" 
+					label="MOD_MFP_SHOW_INTRO_LABEL" 
+					description="MOD_MFP_SHOW_INTRO_DESC"
+					class="btn-group btn-group-yesno">
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field 
+					name="limit_intro" 
+					type="text" 
+					default="200" 
+					label="MOD_MFP_INTROTEXT_LIMIT_LABEL" 
+					description="MOD_MFP_INTROTEXT_LIMIT_DESC"
+					showon="show_intro:1[OR]show_intro:2" />
+				<field 
+					name="limit_title" 
+					type="text" 
+					default="0" 
+					label="MOD_MFP_TITLE_LIMIT_LABEL" 
+					description="MOD_MFP_TITLE_LIMIT_DESC" />
+				<field 
+					name="note2" 
+					type="note" 
+					label="MOD_MFP_ARTICLE_PROPERTIES_LABEL"/>
+				
+				<field
+					name="catid"
+					type="category"
+					label="JCATEGORY"
+					description="MOD_MFP_JCATEGORY_DESC"
+					extension="com_content"
+					multiple="true"
+					filter="int_array"
+				/>
+				<field
+					name="filter_tag"
+					type="tag"
+					label="JTAG"
+					description="MOD_MFP_JTAG_DESC"
+					mode="nested"
+					multiple="true"
+					filter="int_array"
+					class="multipleTags"
+				/>
+				
+				<field
+					name="show_featured"
+					type="list"
+					label="MOD_MFP_FIELD_FEATURED_LABEL"
+					description="MOD_MFP_FIELD_FEATURED_DESC"
+					default=""
+					filter="integer"
+					>
+					<option value="">JSHOW</option>
+					<option value="0">JHIDE</option>
+					<option value="1">MOD_MFP_VALUE_ONLY_SHOW_FEATURED</option>
+				</field>
+
+				<field
+					name="ordering"
+					type="list"
+					label="MOD_MFP_FIELD_ORDERING_LABEL"
+					description="MOD_MFP_FIELD_ORDERING_DESC"
+					default="published"
+					>
+					<option value="c_dsc">MOD_MFP_VALUE_RECENT_ADDED</option>
+					<option value="m_dsc">MOD_MFP_VALUE_RECENT_MODIFIED</option>
+					<option value="p_dsc">MOD_MFP_VALUE_RECENT_PUBLISHED</option>
+					<option value="mc_dsc">MOD_MFP_VALUE_RECENT_TOUCHED</option>
+					<option	value="random">MOD_MFP_VALUE_RECENT_RAND</option>
+				</field>
+
+				<field
+					name="user_id"
+					type="list"
+					label="MOD_MFP_FIELD_USER_LABEL"
+					description="MOD_MFP_FIELD_USER_DESC"
+					default="0"
+					>
+					<option value="0">MOD_MFP_VALUE_ANYONE</option>
+					<option value="by_me">MOD_MFP_VALUE_ADDED_BY_ME</option>
+					<option value="not_me">MOD_MFP_VALUE_NOTADDED_BY_ME</option>
+					<option value="created_by">MOD_MFP_VALUE_CREATED_BY</option>
+				</field>
+
+				<field
+					name="author"
+					type="author"
+					label="MOD_MFP_FIELD_AUTHOR_LABEL"
+					multiple="true"
+					showon="user_id:created_by"
+				/>
+				
+				<field 
+					name="period" 
+					type="list" 
+					default="" 
+					label="MOD_MFP_PERIOD_LABEL" 
+					description="MOD_MFP_PERIOD_DESC">
+                    <option value="">MOD_MFP_ALL_TIME</option>
+                    <option value="1">MOD_MFP_1_DAY</option>
+                    <option value="3">MOD_MFP_3_DAYS</option>
+                    <option value="7">MOD_MFP_1_WEEK</option>
+                    <option value="15">MOD_MFP_2_WEEKS</option>
+                    <option value="30">MOD_MFP_1_MONTH</option>
+                    <option value="90">MOD_MFP_3_MONTHS</option>
+                    <option value="180">MOD_MFP_6_MONTHS</option>
+                    <option value="9">MOD_MFP_CUSTOM_MONTHS</option>
+                </field>
+				<field
+					name="custom_period"
+					type="number"
+					label="MOD_MFP_CUSTOM_PERIOD_LABEL"
+					default="364"
+					description="MOD_MFP_CUSTOM_PERIOD_DESC"
+					showon="period:9"
+				/>
+				<field 
+					name="note3" 
+					type="note" 
+					label="MOD_MFP_THUMBNAIL_SETTINGS_LABEL"/>
+			
+				<field 
+					name="thumb_width" 
+					type="text" 
+					default="64" 
+					label="MOD_MFP_THUMBNAIL_WIDTH_LABEL" 
+					description="MOD_MFP_THUMBNAIL_WIDTH_DESC" />
+				<field 
+					name="thumb_height" 
+					type="text" 
+					default="64" 
+					label="MOD_MFP_THUMBNAIL_HEIGHT_LABEL" 
+					description="MOD_MFP_THUMBNAIL_HEIGHT_DESC" />
+				<field 
+					name="show_default_thumb" 
+					type="radio" 
+					default="1" 
+					label="MOD_MFP_THUMBNAIL_SHOW_DEFAULT_LABEL" 
+					description="MOD_MFP_THUMBNAIL_SHOW_DEFAULT_DESC"
+					class="btn-group btn-group-yesno">
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field 
+					name="custom_default_thumb" 
+					type="media" directory="" 
+					label="MOD_MFP_THUMBNAIL_CUSTOM_DEFAULT_LABEL" 
+					description="MOD_MFP_THUMBNAIL_CUSTOM_DEFAULT_DESC" 
+					showon="show_default_thumb:1" />
+			</fieldset>
+			<fieldset name="Themes">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="MOD_MFP_THEME_LABEL"
+					class="custom-select"
+					default="_:default"
+					labelclass="theme-select"
+				/>
+				<field 
+					name="theme_default" 
+					type="subform" 
+					formsource="modules/mod_minifrontpage/tmpl/default.xml" 
+					label="MOD_MFP_THM_DEFAULT_LABEL" description="MOD_MFP_THM_DEFAULT_DESC"
+					showon="layout:_:default" />
+				<field 
+					name="theme_carousel" 
+					type="subform" 
+					formsource="modules/mod_minifrontpage/tmpl/carousel.xml" 
+					label="MOD_MFP_THM_DEFAULT_LABEL" description="MOD_MFP_THM_CAROUSEL_DESC"
+					showon="layout:_:carousel" />
+				<field 
+					name="theme_masonry" 
+					type="subform" 
+					formsource="modules/mod_minifrontpage/tmpl/masonry.xml" 
+					label="MOD_MFP_THM_DEFAULT_LABEL" description="MOD_MFP_THM_MASONRY_DESC"
+					showon="layout:_:masonry" />
+			</fieldset>
+
+			<fieldset name="css">
+			<field
+					name="css_adjustment"
+					type="textarea"
+					label="MOD_MFP_CSS_ADJUSTMENT_LABEL"
+					description="MOD_MFP_CSS_ADJUSTMENT_DESC"
+					rows="3"
+					hint=".mfp_date {font-weight:700;color:#000!important;}"
+				/>
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					rows="3"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="number"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					default="900"
+					filter="integer"
+				/>
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static"
+					>
+					<option value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+        <server type="extension" name="Minifrontpage" priority="1">http://www.templateplazza.com/updates/minifrontpage.xml</server>
+	</updateservers>
+</extension>
